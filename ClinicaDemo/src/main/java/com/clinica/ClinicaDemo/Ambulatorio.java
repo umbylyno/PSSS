@@ -10,10 +10,10 @@ public class Ambulatorio {
 	@Id
 	private String Codice;
 	
-	
+	// hola me llamo Ciro
 	public Ambulatorio()
 	{
-		
+		System.out.println("Heòòpafhyfxy");
 	}
 
 	public String getNome() {
