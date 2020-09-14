@@ -6,9 +6,9 @@ import java.rmi.server.UnicastRemoteObject;
 import rmi_Interfaces.Paziente_Interface;
 import Server.*;
 
-public class ControllerServer extends UnicastRemoteObject implements Paziente_Interface{
+public class ControllerServerPaziente extends UnicastRemoteObject implements Paziente_Interface{
 
-	public ControllerServer() throws RemoteException {
+	public ControllerServerPaziente() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}

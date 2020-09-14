@@ -28,6 +28,8 @@ public class ControllerClientPaziente {
 	
 	public void EffettuaPrenotazione() {
 		
+		
+		
 	}
 	
 	

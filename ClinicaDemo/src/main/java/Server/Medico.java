@@ -36,11 +36,14 @@ public class Medico {
 		// TODO - implement Medico.DisponibilitaMedico
 		throw new UnsupportedOperationException();
 	}
-
-
-
 	
-	
+	public Visita CreaVisita(String Tipologia) {
+		
+		Visita V = new Visita(Tipologia);
+		
+		return V;
+		
+	}
 
 
 	public int getId() {

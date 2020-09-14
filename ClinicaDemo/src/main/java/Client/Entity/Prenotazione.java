@@ -1,9 +1,10 @@
 package Client.Entity;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
-public class Prenotazione {
+public class Prenotazione implements Serializable{
 
 	private Timestamp Data;
 	private int id;

@@ -75,7 +75,8 @@ public class CartellaClinica {
         
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
-        session.save(CC);
+        session.saveOrUpdate(CC);
+        //session.save(CC);
         
         tx.commit();
 		

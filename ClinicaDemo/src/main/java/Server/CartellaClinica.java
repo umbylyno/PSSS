@@ -31,6 +31,20 @@ public class CartellaClinica {
 		Trattamenti = CC.getTrattamenti();
 		Paziente_CartellaClinica = null;
 	}
+	
+	public void CaricaCartella() {
+		
+		DB.CartellaClinica CartellaDB = new DB.CartellaClinica();
+		CartellaDB.setPaziente_CodiceFiscale(this.getPaziente_CartellaClinica().getCodiceFiscale());
+		
+		CartellaDB.setAnamnesiClinica(this.AnamnesiClinica);
+		CartellaDB.setEsamiPrecedenti(this.EsamiPrecedenti);
+		CartellaDB.setPrescrizioni(this.Prescrizioni);
+		CartellaDB.setTrattamenti(this.Trattamenti);
+		
+		CartellaDB.UploadToDB();
+		
+	}
 
 
 	public String getAnamnesiClinica() {

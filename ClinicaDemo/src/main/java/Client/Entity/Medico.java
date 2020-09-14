@@ -1,8 +1,9 @@
 package Client.Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Medico {
+public class Medico implements Serializable{
 
 	private int id;
 	private String Nome;
@@ -130,6 +131,15 @@ public class Medico {
 	public void setVisite(ArrayList<Visita> visite) {
 		Visite = visite;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Medico [id=" + id + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Specializzazione=" + Specializzazione
+				+ ", Calendario=" + Calendario + ", Visite=" + Visite + "]";
+	}
+	
 	
 	
 
