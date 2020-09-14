@@ -1,6 +1,8 @@
-package Server;
+package Client.Entity;
 
-public class Paziente {
+import java.io.Serializable;
+
+public class Paziente implements Serializable{
 
 	private String Nome;
 	private String Cognome;
@@ -33,7 +35,14 @@ public class Paziente {
 		this.Prenotazione_Paziente = null;
 	}
 	
-	
+	public Paziente(Server.Paziente P) {
+		this.Nome = P.getNome();
+		this.Cognome = P.getCognome();
+		this.Eta = P.getEta();
+		this.CodiceFiscale = P.getCodiceFiscale();
+		this.CartellaClinica_Paziente = null;
+		this.Prenotazione_Paziente = null;
+	}
 
 	public String getNome() {
 		return Nome;

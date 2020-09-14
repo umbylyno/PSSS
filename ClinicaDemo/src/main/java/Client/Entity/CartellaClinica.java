@@ -1,6 +1,8 @@
-package Server;
+package Client.Entity;
 
-public class CartellaClinica {
+import java.io.Serializable;
+
+public class CartellaClinica implements Serializable{
 
 	private String AnamnesiClinica;
 	private String Prescrizioni;
@@ -71,6 +73,13 @@ public class CartellaClinica {
 
 	public void setPaziente_CartellaClinica(Paziente paziente_CartellaClinica) {
 		Paziente_CartellaClinica = paziente_CartellaClinica;
+	}
+
+	@Override
+	public String toString() {
+		return "CartellaClinica [AnamnesiClinica=" + AnamnesiClinica + ", Prescrizioni=" + Prescrizioni
+				+ ", EsamiPrecedenti=" + EsamiPrecedenti + ", Trattamenti=" + Trattamenti
+				+ ", Paziente_CartellaClinica=" + Paziente_CartellaClinica.getCodiceFiscale() + "]";
 	}
 	
 	
