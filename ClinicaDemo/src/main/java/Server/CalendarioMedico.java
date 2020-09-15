@@ -1,5 +1,6 @@
 package Server;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class CalendarioMedico {
@@ -39,7 +40,26 @@ public class CalendarioMedico {
 	}
 	
 	
-	
+	@Override
+    public boolean equals(Object o) { 
+  
+        // If the object is compared with itself then return true   
+        if (o == this) { 
+            return true; 
+        } 
+  
+        /* Check if o is an instance of Complex or not 
+          "null instanceof [type]" also returns false */
+        if (!(o instanceof CalendarioMedico)) { 
+            return false; 
+        } 
+          
+        // typecast o to Complex so that we can compare data members  
+        CalendarioMedico c = (CalendarioMedico) o; 
+          
+        // Compare the data members and return accordingly  
+        return c.Data.equals(this.Data);
+    } 
 	
 	
 }

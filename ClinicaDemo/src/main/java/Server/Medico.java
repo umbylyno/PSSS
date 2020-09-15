@@ -1,5 +1,6 @@
 package Server;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Medico {
@@ -49,6 +50,62 @@ public class Medico {
 			}
 
 		}
+		
+		Timestamp DataOdierna = new Timestamp(System.currentTimeMillis());
+		
+		Timestamp Slot1 = new Timestamp(DataOdierna.getTime());
+		Slot1.setDate(DataOdierna.getDate()+1);
+		Slot1.setHours(8);
+		Slot1.setMinutes(0);
+		Slot1.setSeconds(0);
+		Slot1.setNanos(0);
+		
+		Timestamp Slot2 = new Timestamp(Slot1.getTime());
+		Slot2.setHours(Slot1.getHours()+2);
+		
+		Timestamp Slot3 = new Timestamp(Slot2.getTime());
+		Slot3.setHours(Slot1.getHours()+2);
+		
+		Timestamp Slot4 = new Timestamp(Slot3.getTime());
+		Slot4.setHours(Slot1.getHours()+2);
+		
+		int i=0;
+		boolean trovato = false;
+		
+		Timestamp DataFittizia = new Timestamp(this.Calendario.get(0).getData().getTime());
+		System.out.println(DataFittizia);
+		System.out.println(this.Calendario.get(0).getData());
+		if(this.Calendario.contains(DataFittizia)) {
+			System.out.println(DataFittizia);
+		}
+		else System.out.println("Non funziono");
+		
+		
+		while (!trovato) {
+			
+			if(!Slot1.equals(this.getCalendario().get(i).getData())) {
+				Server.CalendarioMedico SC = new Server.CalendarioMedico();
+				SC.setData(Slot1);
+				SC.setMedico_Calendario(this);
+				this.Calendario.clear();
+				this.Calendario.add(SC);
+				trovato = true;
+			}
+			i++;
+			if (!Slot2.equals(this.getCalendario().get(i).getData())) {
+				Server.CalendarioMedico SC = new Server.CalendarioMedico();
+				SC.setData(Slot1);
+				SC.setMedico_Calendario(this);
+				this.Calendario.clear();
+				this.Calendario.add(SC);
+				trovato = true;
+			}
+			i++;
+			
+			
+			
+		}
+		
 		
 	}
 	

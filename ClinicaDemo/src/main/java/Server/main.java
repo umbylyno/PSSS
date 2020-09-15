@@ -2,6 +2,8 @@ package Server;
 
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class main {
 
@@ -22,7 +24,7 @@ public class main {
 //		
 //		
 //		A.AggiungiPrenotazione(T, "Psicosi", Paz, M);
-		
+//		
 //		Server.Controller.ControllerServerPaziente CSP = new Server.Controller.ControllerServerPaziente();
 //		
 //		Client.Entity.Ambulatorio A = new Client.Entity.Ambulatorio();
@@ -34,29 +36,53 @@ public class main {
 //		System.out.println(timestamp);
 		
 		Timestamp DataOdierna = new Timestamp(System.currentTimeMillis());
-		
-		Timestamp Slot1 = DataOdierna;
-		Slot1.setDate(DataOdierna.getDate()+1);
-		Slot1.setHours(8);
-		Slot1.setMinutes(0);
-		Slot1.setSeconds(0);
-		
-		Timestamp Slot2 = new Timestamp(Slot1.getTime());
-		
-		Slot2.setHours(Slot1.getHours()+2);
+		Date d = new Date(System.currentTimeMillis());
+//		Timestamp DataOdierna1 = new Timestamp(System.currentTimeMillis());
 //		
-//		Timestamp Slot3 = Slot2;
+//		Timestamp Slot1 = new Timestamp(DataOdierna.getTime());
+//		Slot1.setDate(DataOdierna.getDate()+1);
+//		Slot1.setHours(8);
+//		Slot1.setMinutes(0);
+//		Slot1.setSeconds(0);
+//		
+//		Timestamp Slot2 = new Timestamp(Slot1.getTime());
+//		
+//		Slot2.setHours(Slot1.getHours()+2);
+//		
+//		Timestamp Slot3 = new Timestamp(Slot2.getTime());
 //		Slot3.setHours(Slot1.getHours()+2);
 //		
-//		Timestamp Slot4 = Slot3;
+//		Timestamp Slot4 = new Timestamp(Slot3.getTime());
 //		Slot4.setHours(Slot1.getHours()+2);
-		System.out.println(DataOdierna);
-		System.out.println(Slot1);
+////		System.out.println(DataOdierna);
+////		System.out.println(Slot1);
+////		
+////		System.out.println(Slot2);
+//////		System.out.println(Slot3);
+//////		System.out.println(Slot4);
+////		System.out.println(DataOdierna.equals(Slot1));
+//		
+//		ArrayList<Timestamp> Date = new ArrayList<Timestamp>();
+//		Date.add(Slot1);
+//		Date.add(Slot2);
+//		Date.add(Slot3);
+//		Date.add(Slot4);
+//		Date.add(DataOdierna1);
+//		
+//		boolean trovato = false;
+//		int i=0;
+//		
+		if(d.equals(DataOdierna)) {
+			System.out.println(DataOdierna);
+			System.out.println("Ciao");
+		}
 		
-		System.out.println(Slot2);
-//		System.out.println(Slot3);
-//		System.out.println(Slot4);
-		System.out.println(DataOdierna.equals(Slot1));
+//		while(!trovato) {
+//			
+//			
+//			
+//		}
+		
 	}
 
 }
