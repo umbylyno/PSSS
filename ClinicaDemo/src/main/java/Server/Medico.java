@@ -33,8 +33,23 @@ public class Medico {
 
 
 	public void DisponibilitaMedico() {
-		// TODO - implement Medico.DisponibilitaMedico
-		throw new UnsupportedOperationException();
+
+		
+		DB.CalendarioMedico CM = new DB.CalendarioMedico();
+		//Scarico tutti i calendari
+		ArrayList<DB.CalendarioMedico> CalendariDB =  CM.DownloadCalendari();
+		
+		//FILTRAGGIO E CASTING
+		for(int i=0; i<CalendariDB.size(); i++) {
+			
+			if(CalendariDB.get(i).getIdCalendarioMedico() == this.id) {
+				Server.CalendarioMedico CalServer = new Server.CalendarioMedico();
+				CalServer.setData(CalendariDB.get(i).getData());
+				this.Calendario.add(CalServer);
+			}
+
+		}
+		
 	}
 	
 	public Visita CreaVisita(String Tipologia) {
@@ -133,6 +148,14 @@ public class Medico {
 	public void setVisite(ArrayList<Visita> visite) {
 		Visite = visite;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Medico [id=" + id + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Specializzazione=" + Specializzazione + " ]";
+	}
+	
 	
 	
 

@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+
 import DB.Prenotazione;
 
 
@@ -58,9 +60,35 @@ public class Ambulatorio {
 		return P;
 	}
 
-	public void AssegnaMedico() {
-		// TODO - implement Ambulatorio.AssegnaMedico
-		throw new UnsupportedOperationException();
+	public ArrayList<Medico> RicercaMedici() {
+		
+		DB.Medico MedicoDB = new DB.Medico();
+		ArrayList<DB.Medico> MediciDB = MedicoDB.DownloadMedici();
+		
+		ArrayList<DB.Medico> M = new ArrayList<DB.Medico>();
+		
+		//Aggiungo i medici filtrati per ambulatorio
+		for(int i=0; i<MediciDB.size(); i++) {
+			
+			if(MediciDB.get(i).getAmbulatorio_Codice().equals(this.getCodice())) {
+				M.add(MediciDB.get(i));
+			}
+			
+		}
+		
+		//Casting dei medici to mediciserver
+		ArrayList<Server.Medico> Medici = new ArrayList<Server.Medico>();
+		for(int i=0; i<M.size(); i++) {
+			
+			Server.Medico Med = new Server.Medico();
+			Med.setNome(M.get(i).getNome());
+			Med.setCognome(M.get(i).getCognome());
+			Med.setSpecializzazione(M.get(i).getSpecializzazione());
+			Med.setId(M.get(i).getIdMedico());
+			Medici.add(Med);
+		}
+		
+		return Medici;
 	}
 
 	

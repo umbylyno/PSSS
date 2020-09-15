@@ -10,13 +10,16 @@ public class main {
 
 	public static void main(String[] args) throws MalformedURLException, RemoteException, NotBoundException {
 		
-		ControllerClientMedico CCP= new ControllerClientMedico();
+		//Medico
+		ControllerClientMedico CCM = new ControllerClientMedico();
+		Visita V = CCM.EffettuaVisita(1);
 		
-		Visita V = CCP.EffettuaVisita(1);
+		//Paziente
+		ControllerClientPaziente CCP = new ControllerClientPaziente();
+		CCP.VisualizzaCartellaClinica();
+		System.out.println(CCP);
 		
-		System.out.println(V);
-		
-		CCP.AggiornaCartellaClinica(V, "CIAO", "COME", "LA", "VA");
+		//CCP.AggiornaCartellaClinica(V, "CIAO", "COME", "LA", "VA");
 		
 	}
 

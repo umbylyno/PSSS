@@ -11,7 +11,9 @@ public class ApplicationServer {
 		// TODO Auto-generated method stub
 
 		Registry r = LocateRegistry.createRegistry(3033);
-		r.rebind("pippo", new Server.Controller.ControllerServerMedico());
+		
+		r.rebind("pippo", new Server.Controller.ControllerServerPaziente());
+		r.rebind("pluto", new Server.Controller.ControllerServerMedico());
 	}
 
 }

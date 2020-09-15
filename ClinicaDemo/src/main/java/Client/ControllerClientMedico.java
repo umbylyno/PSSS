@@ -16,7 +16,7 @@ public class ControllerClientMedico {
 		V.getCC().setPrescrizioni(Prescrizioni);
 		V.getCC().setTrattamenti(Trattamenti);
 		
-		rmi_Interfaces.Medico_Interface MedicoInterface = (rmi_Interfaces.Medico_Interface) Naming.lookup("rmi://localhost:3033/pippo");
+		rmi_Interfaces.Medico_Interface MedicoInterface = (rmi_Interfaces.Medico_Interface) Naming.lookup("rmi://localhost:3033/pluto");
 		
 		MedicoInterface.AggiornaCartellaClinica(V);
 		
@@ -29,7 +29,7 @@ public class ControllerClientMedico {
 		Medico M = new Medico(1, "Umberto", "De Rosa", "Cardiologia", null, null);
 		
 		
-		rmi_Interfaces.Medico_Interface MedicoInterface = (rmi_Interfaces.Medico_Interface) Naming.lookup("rmi://localhost:3033/pippo");
+		rmi_Interfaces.Medico_Interface MedicoInterface = (rmi_Interfaces.Medico_Interface) Naming.lookup("rmi://localhost:3033/pluto");
 		
 		Visita V = MedicoInterface.EffettuaVisita(CodicePrenotazione, M);
 		

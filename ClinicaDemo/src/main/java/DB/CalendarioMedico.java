@@ -1,5 +1,6 @@
 package DB;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,8 +17,9 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
 
 @Entity
-public class CalendarioMedico {
+public class CalendarioMedico implements Serializable{
 
+	@Id
 	private Date Data;
 	@Id
 	private int idCalendarioMedico;
@@ -74,7 +76,7 @@ public class CalendarioMedico {
 		
 	}
 	
-	public ArrayList<CalendarioMedico> DownloadCalendari(int idCalendarioMedico){
+	public ArrayList<CalendarioMedico> DownloadCalendari(){
 	
 		
 		Configuration con = new Configuration().configure().addAnnotatedClass(CalendarioMedico.class);
@@ -88,9 +90,11 @@ public class CalendarioMedico {
         Transaction tx = session.beginTransaction(); 
 
         Criteria cr = session.createCriteria(CalendarioMedico.class);
-        cr.add(Restrictions.eq("idCalendarioMedico", idCalendarioMedico));
+        //cr.add(Restrictions.eq("idCalendarioMedico", idCalendarioMedico));
         
         ArrayList<CalendarioMedico> Calendari = (ArrayList<CalendarioMedico>) cr.list();
+        
+       
         
         return Calendari;
         
@@ -107,6 +111,18 @@ public class CalendarioMedico {
 
 	public void setData(Date data) {
 		Data = data;
+	}
+	
+	
+
+
+	public int getIdCalendarioMedico() {
+		return idCalendarioMedico;
+	}
+
+
+	public void setIdCalendarioMedico(int idCalendarioMedico) {
+		this.idCalendarioMedico = idCalendarioMedico;
 	}
 
 

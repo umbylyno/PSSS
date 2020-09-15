@@ -18,7 +18,7 @@ public class Visita {
 	public Visita(String tipologia) {
 		super();
 		Tipologia = tipologia;
-		//Data.setTime(System.currentTimeMillis());
+		Data = new Timestamp(System.currentTimeMillis());
 		CC = null;
 		
 	}

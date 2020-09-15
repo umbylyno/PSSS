@@ -32,9 +32,14 @@ public class CalendarioMedico {
 	public void setMedico_Calendario(Medico medico_Calendario) {
 		Medico_Calendario = medico_Calendario;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "CalendarioMedico [Data=" + Data + "]";
+	}
+	
+	
+	
 	
 	
 }
