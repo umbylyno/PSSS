@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+
+import Client.Entity.Paziente;
+
 import javax.swing.JSeparator;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -46,6 +49,13 @@ public class GUIClientPaziente {
 	private void initialize() {
 		
 		//Recuperiamo qui il nome e cognome di un paziente
+		//Stub del Login del paziente
+		//PAZIENTE LOGGATO
+		Client.Entity.Paziente P = new Client.Entity.Paziente();
+		P.setNome("Marco");
+		P.setCognome("Carta");
+		P.setEta(30);
+		P.setCodiceFiscale("CRTMRC");
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 861, 539);
@@ -62,8 +72,12 @@ public class GUIClientPaziente {
 		frame.getContentPane().add(separator);
 		
 		JLabel LabelNomePaziente = new JLabel("New label");
-		LabelNomePaziente.setBounds(61, 117, 82, 23);
+		LabelNomePaziente.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		LabelNomePaziente.setBounds(78, 118, 543, 93);
 		frame.getContentPane().add(LabelNomePaziente);
+		String Benvenuto = new String("Benvenuto sig./sig.ra, " + P.getCognome());
+		LabelNomePaziente.setText(Benvenuto);
+		LabelNomePaziente.setVisible(true);
 		
 		JButton VisualizzaCartellaButton = new JButton("Visualizza cartella clinica");
 		VisualizzaCartellaButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -71,7 +85,7 @@ public class GUIClientPaziente {
 			public void actionPerformed(ActionEvent arg0) {
 				//Metodo della cartella clinica
 				Client.GUIVisualizzaCartellaClinica.main();
-				//frame.setVisible(false);
+				frame.dispose();
 			}
 		});
 		
@@ -86,12 +100,11 @@ public class GUIClientPaziente {
 		PrenotazioneButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GUIEffettuaPrenotazione.main();
-//				frame.setVisible(false);
+				frame.dispose();
 			}
 		});
 		PrenotazioneButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		PrenotazioneButton.setBounds(450, 274, 339, 63);
 		frame.getContentPane().add(PrenotazioneButton);
-		LabelNomePaziente.setVisible(false);
 	}
 }

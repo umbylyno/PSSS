@@ -1,5 +1,6 @@
 package Client.Entity;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Random;
@@ -8,7 +9,7 @@ import DB.Prenotazione;
 
 
 
-public class Ambulatorio {
+public class Ambulatorio implements Serializable{
 
 	private String Nome;
 	private String Codice;
@@ -17,6 +18,12 @@ public class Ambulatorio {
 	private ArrayList<Prestazione> Prestazioni;
 	
 	
+	public Ambulatorio(String codice, String nome) {
+		super();
+		Nome = nome;
+		Codice = codice;
+	}
+
 	public Ambulatorio(String nome, String codice, ArrayList<Medico> medici, ArrayList<Prenotazione> prenotazioni,
 			ArrayList<Prestazione> prestazioni) {
 		super();

@@ -1,9 +1,12 @@
 package Client.Entity;
 
-public class Prestazione {
+import java.io.Serializable;
+
+public class Prestazione implements Serializable {
 
 	private String Nome;
 	private String Codice;
+	
 	public Prestazione() {
 		super();
 	}
@@ -11,6 +14,9 @@ public class Prestazione {
 		super();
 		Nome = nome;
 		Codice = codice;
+	}
+	public Prestazione(String nome) {
+		Nome = nome;
 	}
 	public String getNome() {
 		return Nome;

@@ -1,6 +1,8 @@
 package Server;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Prenotazione {
@@ -14,12 +16,15 @@ public class Prenotazione {
 	
 	public Prenotazione() {
 		super();
+		Date dNow = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("ddMMHHmmss");
+        String datetime = ft.format(dNow);
+		this.id =  Integer.parseInt(datetime);
 	}
 	public Prenotazione(Timestamp data, int id, String tipologia, Paziente paziente_Prenotazione,
 			Medico medico_Prenotazione, Ambulatorio ambulatorio_Prenotazione) {
 		super();
 		Data = data;
-		this.id = id;
 		Tipologia = tipologia;
 		Paziente_Prenotazione = paziente_Prenotazione;
 		Medico_Prenotazione = medico_Prenotazione;
@@ -44,8 +49,8 @@ public class Prenotazione {
 		PrenotazioneDB.setMedico_idMedico(this.Medico_Prenotazione.getId());
 		PrenotazioneDB.setPaziente_CodiceFiscale(this.Paziente_Prenotazione.getCodiceFiscale());
 		
-		//PrenotazioneDB.UploadToDB();
-		System.out.println(PrenotazioneDB);
+		PrenotazioneDB.UploadToDB();
+		//System.out.println(PrenotazioneDB);
 	}
 	
 	public Timestamp getData() {

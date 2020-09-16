@@ -137,7 +137,7 @@ public class Medico implements Serializable{
 	@Override
 	public String toString() {
 		return "Medico [id=" + id + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Specializzazione=" + Specializzazione
-				+ ", Calendario=" + Calendario + ", Visite=" + Visite + "]";
+				+ ", Calendario=" + Calendario.get(0) + ", Visite=" + Visite + "]";
 	}
 	
 	

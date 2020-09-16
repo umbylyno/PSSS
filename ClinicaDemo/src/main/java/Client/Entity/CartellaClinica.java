@@ -77,9 +77,14 @@ public class CartellaClinica implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CartellaClinica [AnamnesiClinica=" + AnamnesiClinica + ", Prescrizioni=" + Prescrizioni
-				+ ", EsamiPrecedenti=" + EsamiPrecedenti + ", Trattamenti=" + Trattamenti
-				+ ", Paziente_CartellaClinica=" + Paziente_CartellaClinica.getCodiceFiscale() + "]";
+		return "Nome: " + this.Paziente_CartellaClinica.getNome() + "\n" +
+			   "Cognome: " + this.Paziente_CartellaClinica.getCognome() + "\n" +
+				"Età: " + this.Paziente_CartellaClinica.getEta() + "\n" +
+				"Codice Fiscale: " + this.Paziente_CartellaClinica.getCodiceFiscale() + "\n" +
+				"Anamnesi: " + this.AnamnesiClinica + "\n" +
+				"Prescrizioni: " + this.Prescrizioni + "\n" +
+				"Esami Precedenti: " + this.EsamiPrecedenti + "\n" +
+				"Trattamento: " + this.Trattamenti + "\n";
 	}
 	
 	

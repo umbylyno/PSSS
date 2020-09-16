@@ -2,6 +2,7 @@ package Server;
 
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,7 +37,7 @@ public class main {
 //		System.out.println(timestamp);
 		
 		Timestamp DataOdierna = new Timestamp(System.currentTimeMillis());
-		Date d = new Date(System.currentTimeMillis());
+//		Date d = new Date(System.currentTimeMillis());
 //		Timestamp DataOdierna1 = new Timestamp(System.currentTimeMillis());
 //		
 //		Timestamp Slot1 = new Timestamp(DataOdierna.getTime());
@@ -72,16 +73,23 @@ public class main {
 //		boolean trovato = false;
 //		int i=0;
 //		
-		if(d.equals(DataOdierna)) {
-			System.out.println(DataOdierna);
-			System.out.println("Ciao");
-		}
+//		if(d.equals(DataOdierna)) {
+//			System.out.println(DataOdierna);
+//			System.out.println("Ciao");
+//		}
 		
 //		while(!trovato) {
 //			
 //			
 //			
 //		}
+		
+		System.out.println(DataOdierna);
+	    Date dNow = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("ddMMHHmmss");
+        String datetime = ft.format(dNow);
+        int data = Integer.parseInt(datetime);
+        System.out.println(data);
 		
 	}
 

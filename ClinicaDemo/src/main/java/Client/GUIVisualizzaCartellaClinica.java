@@ -15,10 +15,13 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class GUIVisualizzaCartellaClinica {
 
 	private static JFrame frame;
+	private String[] args;
 
 	/**
 	 * Launch the application.
@@ -49,6 +52,7 @@ public class GUIVisualizzaCartellaClinica {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 828, 545);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,9 +67,12 @@ public class GUIVisualizzaCartellaClinica {
 		separator.setBounds(0, 62, 804, 2);
 		frame.getContentPane().add(separator);
 		
-		JButton IndietroButton = new JButton("Indietro");
+		JButton IndietroButton = new JButton("Annulla");
 		IndietroButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Client.GUIClientPaziente.main(args);
+				frame.dispose();
 				
 			}
 		});
@@ -74,20 +81,27 @@ public class GUIVisualizzaCartellaClinica {
 		frame.getContentPane().add(IndietroButton);
 		
 		
+		
+		
+		
+		
 	}
 	
 	private static void Popolate() throws MalformedURLException, RemoteException, NotBoundException {
 		
-		JLabel lblCartClinica = new JLabel("");
-		lblCartClinica.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblCartClinica.setBounds(118, 131, 458, 224);
-		frame.getContentPane().add(lblCartClinica);
+		JTextArea textFieldCartella = new JTextArea();
+		textFieldCartella.setBounds(38, 83, 686, 283);
+		frame.getContentPane().add(textFieldCartella);
+		textFieldCartella.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		
 		//Effettuo operazioni
 		ControllerClientPaziente CCP = new ControllerClientPaziente();
 		CartellaClinica CC = CCP.VisualizzaCartellaClinica();
 		
-		lblCartClinica.setText(CC.toString());
+		String CartellaStringa = CC.toString();
+		
+		textFieldCartella.setText(CartellaStringa);
+		textFieldCartella.setEditable(false);
 		
 	}
 }
