@@ -33,6 +33,7 @@ public class GUIEffettuaPrenotazione {
 	private static Client.Entity.Clinica C;
 	private static int indiceAmbulatorio = -1;
 	private static ArrayList<Client.Entity.Medico> Medici;
+	private static String[] ciao;
 
 	/**
 	 * Launch the application.
@@ -105,7 +106,6 @@ public class GUIEffettuaPrenotazione {
 		
 		
 		comboBoxTipologie.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		//comboBoxTipologie.setModel(new DefaultComboBoxModel(new String[] {"io", "sono", "giorgia"}));
 		comboBoxTipologie.setVisible(false);
 		
 		
@@ -211,7 +211,9 @@ public class GUIEffettuaPrenotazione {
 								
 								try {
 									Conferma = CCP.ConfermaPrenotazione(Medici.get(sceltaMedico), NomeTipologia, C.getAmbulatori().get(indiceAmbulatorio));
-									JOptionPane.showMessageDialog(frame, Conferma);
+									JLabel label = new JLabel(Conferma);
+									label.setFont(new Font("Tahoma", Font.BOLD, 24));
+									JOptionPane.showMessageDialog(null,label,"PRENOTAZIONE AVVENUTA",JOptionPane.INFORMATION_MESSAGE);
 								} catch (MalformedURLException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
@@ -222,6 +224,9 @@ public class GUIEffettuaPrenotazione {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
+								
+								frame.dispose();
+								Client.GUIClientPaziente.main(ciao);
 								
 							}
 						});

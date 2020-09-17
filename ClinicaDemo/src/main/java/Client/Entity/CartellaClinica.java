@@ -74,6 +74,13 @@ public class CartellaClinica implements Serializable{
 	public void setPaziente_CartellaClinica(Paziente paziente_CartellaClinica) {
 		Paziente_CartellaClinica = paziente_CartellaClinica;
 	}
+	
+	public String StampaDatiAnagrafici() {
+		return "Nome: " + this.Paziente_CartellaClinica.getNome() + "\n" +
+				   "Cognome: " + this.Paziente_CartellaClinica.getCognome() + "\n" +
+					"Età: " + this.Paziente_CartellaClinica.getEta() + "\n" +
+					"Codice Fiscale: " + this.Paziente_CartellaClinica.getCodiceFiscale() + "\n";
+	}
 
 	@Override
 	public String toString() {

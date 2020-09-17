@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class main {
 
@@ -85,11 +86,46 @@ public class main {
 //		}
 		
 		System.out.println(DataOdierna);
-	    Date dNow = new Date();
-        SimpleDateFormat ft = new SimpleDateFormat("ddMMHHmmss");
-        String datetime = ft.format(dNow);
-        int data = Integer.parseInt(datetime);
-        System.out.println(data);
+		
+//	    Date dNow = new Date();
+//        SimpleDateFormat ft = new SimpleDateFormat("ddMMHHmmss");
+//        String datetime = ft.format(dNow);
+//        int data = Integer.parseInt(datetime);
+//        System.out.println(data);
+		
+		Random r = new Random();
+		int day  = 30 + 1;
+		int scelta = r.nextInt(3);
+		
+		DataOdierna.setDate(DataOdierna.getDate() + day);
+		
+		
+		switch(scelta) {
+			
+		case 0:
+			DataOdierna.setHours(8);
+			DataOdierna.setMinutes(0);
+			DataOdierna.setSeconds(0);
+			break;
+		case 1:
+			DataOdierna.setHours(10);
+			DataOdierna.setMinutes(0);
+			DataOdierna.setSeconds(0);
+			break;
+		case 2:
+			DataOdierna.setHours(12);
+			DataOdierna.setMinutes(0);
+			DataOdierna.setSeconds(0);
+			break;
+		case 3:
+			DataOdierna.setHours(14);
+			DataOdierna.setMinutes(0);
+			DataOdierna.setSeconds(0);
+			break;
+		
+		}
+		
+		System.out.println(DataOdierna);
 		
 	}
 

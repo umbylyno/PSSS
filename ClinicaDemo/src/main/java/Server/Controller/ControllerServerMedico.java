@@ -28,6 +28,10 @@ public class ControllerServerMedico extends UnicastRemoteObject implements Medic
 		
 		System.out.println(P);
 		
+		if(P==null) {
+			return null;
+		}
+		
 		Server.Medico MServer = new Server.Medico();
 		MServer.setId(M.getId());
 		MServer.setNome(M.getNome());
@@ -46,6 +50,9 @@ public class ControllerServerMedico extends UnicastRemoteObject implements Medic
 		
 		Client.Entity.Paziente Paz = new Client.Entity.Paziente();
 		Paz.setCodiceFiscale(P.getPaziente_Prenotazione().getCodiceFiscale());
+		Paz.setNome(P.getPaziente_Prenotazione().getNome());
+		Paz.setCognome(P.getPaziente_Prenotazione().getCognome());
+		Paz.setEta(P.getPaziente_Prenotazione().getEta());
 		
 		Client.Entity.CartellaClinica C = new Client.Entity.CartellaClinica();
 		C.setPaziente_CartellaClinica(Paz);

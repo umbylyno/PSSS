@@ -4,18 +4,24 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 
 public class GUIClientMedico {
 
 	private JFrame frame;
 	private JTextField CodiceField;
-
+	private Client.Entity.Visita V;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -53,13 +59,14 @@ public class GUIClientMedico {
 		lblNewLabel.setBounds(267, 19, 189, 48);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Inserisci il codice");
+		JLabel lblNewLabel_1 = new JLabel("Inserisci il codice prenotazione");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_1.setBounds(48, 180, 189, 38);
+		lblNewLabel_1.setBounds(29, 185, 360, 38);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		CodiceField = new JTextField();
-		CodiceField.setBounds(337, 187, 271, 29);
+		CodiceField.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		CodiceField.setBounds(394, 190, 338, 29);
 		frame.getContentPane().add(CodiceField);
 		CodiceField.setColumns(10);
 		
@@ -67,7 +74,30 @@ public class GUIClientMedico {
 		CercaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Ricerca Codice Prenotazione
+				Client.ControllerClientMedico CCM = new Client.ControllerClientMedico();
+				try {
+					V = CCM.EffettuaVisita(Integer.parseInt(CodiceField.getText()));
+				} catch (NumberFormatException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (MalformedURLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (NotBoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
+				if (V!=null) {
+					
+					Client.GUIAggiornaCartellaClinica.main(V);
+					frame.setVisible(false);
+					
+				}
+				else JOptionPane.showMessageDialog(frame, "Non ho trovato la prenotazione!");
 			}
 		});
 		CercaButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
