@@ -1,4 +1,4 @@
-package Client;
+package Client.GUI.Medico;
 
 import java.awt.EventQueue;
 
@@ -74,7 +74,7 @@ public class GUIClientMedico {
 		CercaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Ricerca Codice Prenotazione
-				Client.ControllerClientMedico CCM = new Client.ControllerClientMedico();
+				Client.Controller.Medico.ControllerClientMedico CCM = new Client.Controller.Medico.ControllerClientMedico();
 				try {
 					V = CCM.EffettuaVisita(Integer.parseInt(CodiceField.getText()));
 				} catch (NumberFormatException e1) {
@@ -93,7 +93,7 @@ public class GUIClientMedico {
 				
 				if (V!=null) {
 					
-					Client.GUIAggiornaCartellaClinica.main(V);
+					Client.GUI.Medico.GUIAggiornaCartellaClinica.main(V);
 					frame.setVisible(false);
 					
 				}

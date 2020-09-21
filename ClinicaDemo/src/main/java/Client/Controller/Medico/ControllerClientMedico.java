@@ -1,4 +1,4 @@
-package Client;
+package Client.Controller.Medico;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;

@@ -1,4 +1,4 @@
-package Client;
+package Client.GUI.Medico;
 
 import java.awt.EventQueue;
 
@@ -157,7 +157,7 @@ public class GUIAggiornaCartellaClinica {
 		btnSalva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Client.ControllerClientMedico CCM = new Client.ControllerClientMedico();
+				Client.Controller.Medico.ControllerClientMedico CCM = new Client.Controller.Medico.ControllerClientMedico();
 				try {
 					CCM.AggiornaCartellaClinica(Visita, textAnamnesi.getText(), textPresc.getText(), textEsamiPrec.getText(), textTratt.getText());
 				} catch (RemoteException e) {
@@ -171,7 +171,7 @@ public class GUIAggiornaCartellaClinica {
 					e.printStackTrace();
 				}
 			
-			Client.GUIClientMedico.main(ciao);	
+			Client.GUI.Medico.GUIClientMedico.main(ciao);	
 			frame.dispose();
 			}
 		});

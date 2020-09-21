@@ -1,4 +1,4 @@
-package Client;
+package Client.GUI.Paziente;
 
 import java.awt.EventQueue;
 
@@ -138,7 +138,7 @@ public class GUIEffettuaPrenotazione {
 		
 		//MI PRENDO LA CLINICA
 		C = new Client.Entity.Clinica();
-		final Client.ControllerClientPaziente CCP = new Client.ControllerClientPaziente();
+		final Client.Controller.Paziente.ControllerClientPaziente CCP = new Client.Controller.Paziente.ControllerClientPaziente();
 		C = CCP.CaricaAmbulatoriPrestazioni();
 		
 		
@@ -226,7 +226,7 @@ public class GUIEffettuaPrenotazione {
 								}
 								
 								frame.dispose();
-								Client.GUIClientPaziente.main(ciao);
+								Client.GUI.Paziente.GUIClientPaziente.main(ciao);
 								
 							}
 						});

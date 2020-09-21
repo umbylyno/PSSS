@@ -1,4 +1,4 @@
-package Client;
+package Client.GUI.Paziente;
 
 import java.awt.EventQueue;
 
@@ -84,7 +84,7 @@ public class GUIClientPaziente {
 		VisualizzaCartellaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Metodo della cartella clinica
-				Client.GUIVisualizzaCartellaClinica.main();
+				Client.GUI.Paziente.GUIVisualizzaCartellaClinica.main();
 				frame.dispose();
 			}
 		});

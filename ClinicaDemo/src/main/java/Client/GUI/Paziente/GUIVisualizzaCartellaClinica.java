@@ -1,4 +1,4 @@
-package Client;
+package Client.GUI.Paziente;
 
 import java.awt.EventQueue;
 
@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JSeparator;
 
+import Client.Controller.Paziente.ControllerClientPaziente;
 import Client.Entity.CartellaClinica;
 
 import javax.swing.JButton;
@@ -71,7 +72,7 @@ public class GUIVisualizzaCartellaClinica {
 		IndietroButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Client.GUIClientPaziente.main(args);
+				Client.GUI.Paziente.GUIClientPaziente.main(args);
 				frame.dispose();
 				
 			}

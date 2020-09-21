@@ -12,8 +12,8 @@ public class ApplicationServer {
 
 		Registry r = LocateRegistry.createRegistry(3033);
 		
-		r.rebind("pippo", new Server.Controller.ControllerServerPaziente());
-		r.rebind("pluto", new Server.Controller.ControllerServerMedico());
+		r.rebind("pippo", new Server.Controller.Paziente.ControllerServerPaziente());
+		r.rebind("pluto", new Server.Controller.Medico.ControllerServerMedico());
 	}
 
 }

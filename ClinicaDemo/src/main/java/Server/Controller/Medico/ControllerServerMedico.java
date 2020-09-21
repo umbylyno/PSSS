@@ -1,4 +1,4 @@
-package Server.Controller;
+package Server.Controller.Medico;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
